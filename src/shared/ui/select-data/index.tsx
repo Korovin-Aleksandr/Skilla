@@ -3,12 +3,21 @@ import "./select-data.css";
 import { useState } from "react";
 import { Calendar, ChevronDownIcon } from "../../assets/svg/Icon";
 
-interface SelectListTypeProps {
-  onValueChange?: (value: string) => void;
-  onDateChange?: (dates: { start: Date | null; end: Date | null }) => void;
+interface SelectOption {
+  value: string;
+  label: string;
 }
 
-export const SelectData = ({ onValueChange}: SelectListTypeProps) => {
+interface SelectListTypeProps {
+  options: SelectOption[];
+  defaultValue?: string;
+  onValueChange?: (value: string) => void;
+}
+
+export const SelectData = ({
+  options,
+  onValueChange,
+}: SelectListTypeProps) => {
   const [value, setValue] = useState("three-days");
 
   const handleValueChange = (newValue: string) => {
@@ -16,13 +25,12 @@ export const SelectData = ({ onValueChange}: SelectListTypeProps) => {
     onValueChange?.(newValue);
   };
 
-
   return (
     <Select.Root value={value} onValueChange={handleValueChange}>
       <Select.Trigger className="Trigger">
         <ChevronDownIcon className="SelectIconLeft" />
         <div className="SelectDate">
-          <Calendar />
+          <Calendar className="Calendar" />
           <Select.Value></Select.Value>
         </div>
         <ChevronDownIcon className="SelectIconRight" />
@@ -34,21 +42,22 @@ export const SelectData = ({ onValueChange}: SelectListTypeProps) => {
           sideOffset={12}
           align="start"
         >
-          <Select.ScrollUpButton></Select.ScrollUpButton>
           <Select.Viewport className="Viewport">
             <Select.Group className="Group">
-              <Select.Item className="Item" value="three-days">
-                <Select.ItemText>3 дня</Select.ItemText>
-              </Select.Item>
-              <Select.Item className="Item" value="month">
-                <Select.ItemText>Месяц</Select.ItemText>
-              </Select.Item>
-              <Select.Item className="Item" value="year">
-                <Select.ItemText>Год</Select.ItemText>
-              </Select.Item>
-            </Select.Group>
-            <Select.Group>
-              <Select.Label className="SelectLabel">Указать даты</Select.Label>
+              {options.map((option) => (
+                <Select.Item
+                  className="Item"
+                  key={option.value}
+                  value={option.value}
+                >
+                  <Select.ItemText>{option.label}</Select.ItemText>
+                </Select.Item>
+              ))}
+             <Select.Label className="SelectLabel">Указать даты</Select.Label>
+             <Select.Item className="Item item-data"  value="dates">
+              <Select.ItemText className="text-data">__.__.__ - __.__.__</Select.ItemText> 
+              <Calendar />
+             </Select.Item>
             </Select.Group>
           </Select.Viewport>
         </Select.Content>

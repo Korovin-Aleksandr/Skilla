@@ -11,18 +11,13 @@ interface SelectOption {
 interface SelectListTypeProps {
   options: SelectOption[];
   defaultValue?: string;
-  placeholder?: string;
   onValueChange?: (value: string) => void;
 }
 
 export const SelectListType = ({ 
-  options = [
-    { value: "all-types", label: "Все типы" },
-    { value: "incoming", label: "Входящие" },
-    { value: "outgoing", label: "Исходящие" }
-  ],
+  options,
   defaultValue = "all-types",
-  placeholder = "Выберите значение",
+
   onValueChange 
 }: SelectListTypeProps) => {
   const [value, setValue] = useState(defaultValue);
@@ -38,8 +33,8 @@ export const SelectListType = ({
   return (
      <Select.Root value={value} onValueChange={handleValueChange} onOpenChange={setIsOpen}>
       <Select.Trigger className="SelectTrigger">
-        <Select.Value aria-label={selectedOption?.label || placeholder}>
-          {selectedOption?.label || placeholder}
+        <Select.Value aria-label={selectedOption?.label}>
+          {selectedOption?.label}
         </Select.Value>
          <Select.Icon className="SelectIcon">
           {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
@@ -53,8 +48,6 @@ export const SelectListType = ({
           sideOffset={12}
           align="start"
         >
-          <Select.ScrollUpButton className="SelectScrollButton">
-          </Select.ScrollUpButton>
           <Select.Viewport className="SelectViewport">
             <Select.Group className="SelectGroup">
               {options.map((option) => (

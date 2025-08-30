@@ -42,5 +42,61 @@ export const Calendar = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 export const IncomingIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}><path d="M12.522 1.177 11.345 0 1.67 9.675V4.174H0v8.348h8.348v-1.67H2.847l9.675-9.675Z" fill="#005FF8"/></svg>
+  <svg
+    width="13"
+    height="13"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M12.522 1.177 11.345 0 1.67 9.675V4.174H0v8.348h8.348v-1.67H2.847l9.675-9.675Z"
+      fill="#005FF8"
+    />
+  </svg>
+);
+
+export const OutgoingIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    width="13"
+    height="13"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="m0 11.345 1.177 1.177 9.675-9.675v5.5h1.67V0H4.174v1.67h5.501L0 11.345Z"
+      fill="#28A879"
+    />
+  </svg>
+);
+
+export const MissedIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    width="13"
+    height="13"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M12.522 1.177 11.345 0 1.67 9.675V4.174H0v8.348h8.348v-1.67H2.847l9.675-9.675Z"
+      fill="#EA1A4F"
+    />
+  </svg>
+);
+
+export const NonCallIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    width="13"
+    height="13"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="m0 11.345 1.177 1.177 9.675-9.675v5.5h1.67V0H4.174v1.67h5.501L0 11.345Z"
+      fill="#EA1A4F"
+    />
+  </svg>
 );

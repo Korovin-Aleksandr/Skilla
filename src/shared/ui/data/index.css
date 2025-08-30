@@ -1,68 +1,40 @@
-.DatePickerContainer {
-  position: relative;
-  display: inline-block;
-}
-
-.DatePickerTrigger {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
-  border: none;
-  background: white;
-  cursor: pointer;
-  transition: border-color 0.2s;
-  min-width: 162px;
-}
-
-.DatePickerTrigger:hover {
-  border-color: #9ca3af;
-}
-
-.DateText {
-  font-size: 14px;
-  color: #899CB1;
-  flex: 1;  
-  text-align: left;
-}
-
-.ChevronIcon {
-  width: 16px;
-  height: 16px;
-  color: #6b7280;
-}
-
-.DatePickerDropdown {
-  position: absolute;
-  top: 100%;
+/* index.css - обновленный вариант */
+.DatePickerModalOverlay {
+  position: fixed;
+  top: 0;
   left: 0;
-  margin-top: 8px;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 1000;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  border: 1px solid #e5e7eb;
-  animation: fadeIn 0.2s ease-out;
+  backdrop-filter: blur(2px);
 }
 
-.CalendarContainer {
-  padding: 16px;
+.DatePickerModal {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  min-width: 320px;
+  max-width: 90vw;
+  border: 1px solid #e1e5e9;
 }
 
-.CalendarHeader {
+.DatePickerHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #e5e7eb;
+ 
 }
 
-.CalendarHeader h3 {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 600;
-  color: #ADBFDF;
+.SelectedDatesPreview {
+  font-size: 15px;
+  font-weight: 500;
+  color: #2d3748;
+  letter-spacing: 0.02em;
 }
 
 .CloseButton {
@@ -70,141 +42,219 @@
   border: none;
   font-size: 20px;
   cursor: pointer;
-  color: #ADBFDF;
+  color: #a0aec0;
   padding: 4px;
-  line-height: 1;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-weight: 300;
 }
 
 .CloseButton:hover {
-  color: #374151;
+  background-color: #f7fafc;
+  color: #4a5568;
+  transform: rotate(90deg);
 }
 
-/* Стили для календаря с интервалом */
-.RangeCalendar {
-  border: none;
-  padding: 0;
+.CalendarContainer {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
 }
 
-/* Кастомные стили для react-datepicker */
+/* Стили для react-datepicker */
 .react-datepicker {
   border: none;
+  border-radius: 8px;
+  box-shadow: none;
   font-family: inherit;
-}
-
-.react-datepicker__month-container {
-  padding: 0 8px;
+  background: transparent;
 }
 
 .react-datepicker__header {
-  background: white;
-  border-bottom: 1px solid #e5e7eb;
+  background: transparent;
+  border-bottom: none;
+  padding: 0;
 }
 
 .react-datepicker__current-month {
-  color: #374151;
+  font-size: 14px;
   font-weight: 600;
+  color: #2d3748;
+}
+
+.react-datepicker__month-container {
+  padding-top: 10px;
+}
+
+.react-datepicker__navigation--previous {
+  left: 10px;
+}
+
+.react-datepicker__navigation--next {
+  right: 10px;
+}
+
+.react-datepicker__navigation:hover {
+  border-right-color: #718096;
+  border-left-color: #718096;
+}
+
+.react-datepicker__day-names {
+  margin: 8px 0;
+  display: flex;
+  justify-content: center;
 }
 
 .react-datepicker__day-name {
-  color: #6b7280;
+  color: #718096;
   font-weight: 500;
+  font-size: 12px;
+  width: 36px;
+  line-height: 36px;
+  margin: 0 2px;
+}
+
+.react-datepicker__month {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.react-datepicker__week {
+  display: flex;
+  justify-content: center;
 }
 
 .react-datepicker__day {
-  color: #374151;
-  border-radius: 4px;
+  color: #2d3748;
+  font-size: 13px;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  border-radius: 8px;
+  margin: 2px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .react-datepicker__day:hover {
-  background-color: #f3f4f6;
-  border-radius: 4px;
+  background-color: #edf2f7;
+  border-radius: 8px;
 }
 
 .react-datepicker__day--selected,
 .react-datepicker__day--in-selecting-range,
 .react-datepicker__day--in-range {
-  background-color: #3b82f6;
+  background-color: #4299e1;
   color: white;
+  border-radius: 8px;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #ebf4ff;
+  color: #2d3748;
+}
+
+.react-datepicker__day--today {
+  font-weight: 600;
+  color: #4299e1;
+}
+
+.react-datepicker__day--outside-month {
+  color: #cbd5e0;
 }
 
 .react-datepicker__day--range-start,
 .react-datepicker__day--range-end {
-  background-color: #2563eb;
+  background-color: #3182ce;
   color: white;
 }
 
-.react-datepicker__day--keyboard-selected {
-  background-color: #93c5fd;
-  color: white;
+.react-datepicker__day--in-range:not(.react-datepicker__day--range-start):not(.react-datepicker__day--range-end) {
+  background-color: #ebf4ff;
+  color: #2d3748;
 }
 
-.CalendarActions {
+.ModalActions {
   display: flex;
   justify-content: space-between;
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px solid #e5e7eb;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.ApplyButton {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(66, 153, 225, 0.3);
+}
+
+.ApplyButton:hover {
+  background: linear-gradient(135deg, #3182ce 0%, #2b6cb0 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(66, 153, 225, 0.4);
+}
+
+.ApplyButton:active {
+  transform: translateY(0);
 }
 
 .ClearButton {
-  padding: 8px 16px;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  background: white;
-  color: #374151;
+  padding: 10px 20px;
+  background: #ffffff;
+  color: #718096;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: 500;
   font-size: 14px;
+  transition: all 0.2s ease;
 }
 
 .ClearButton:hover {
-  background-color: #f9fafb;
+  background: #f7fafc;
+  color: #e53e3e;
+  border-color: #fed7d7;
+  transform: translateY(-1px);
 }
 
 .CancelButton {
-  padding: 8px 16px;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  background: white;
-  color: #374151;
+  padding: 10px 20px;
+  background: #f7fafc;
+  color: #718096;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: 500;
   font-size: 14px;
+  transition: all 0.2s ease;
 }
 
 .CancelButton:hover {
-  background-color: #f9fafb;
+  background: #edf2f7;
+  color: #4a5568;
+  border-color: #cbd5e0;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Анимация появления модалки */
+.DatePickerModalOverlay {
+  animation: fadeIn 0.2s ease-out;
 }
 
-/* Сетка из 12 черточек */
-.UnderlineGrid {
-  display: flex;
-  gap: 1px;
-  position: absolute;
-  bottom: 0;
-  left: 15px;
-    top: 28px;
-  z-index: 1;
-
-}
-
-.UnderlineSegment {
-  width: 8px;
-  height: 1px;
-  background-color: #D1D5DB;
-  flex-shrink: 0;
-}
-
-.UnderlineSegment:nth-child(7) {
-  width: 9px; /* Дефис между датами */
-  background-color: transparent;
+.DatePickerModal {
+  animation: slideUp 0.3s ease-out;
 }

@@ -1,12 +1,14 @@
+import { CallIcon } from "../../shared/ui/call-item/call-item";
+import { Estimation } from "../../shared/ui/estimation/estimation";
 import "./index.css";
 
 export interface CallItemProps {
-  typeCall: React.ReactNode;
+  typeCall: 'incoming' | 'outgoing' | 'missed' | 'non-call';
   time: string;
   person: string;
   number: string;
+  estimation: 'bad' | 'good' | 'great' | 'none-sript';
   source: string;
-  estimation: string;
   duration: string;
 }
 
@@ -21,12 +23,12 @@ export function CallItem({
 }: CallItemProps) {
   return (
     <li className="CallListItem">
-      <span className="CallListItemType">{typeCall}</span>
+      <CallIcon type={typeCall} />
       <span className="CallListItemTime">{time}</span>
       <img src={person} alt={person} className="avatar" />
       <span className="CallListItemNumber">{number}</span>
       <span className="CallListItemSource">{source}</span>
-      <span className="CallListItemEstimation">{estimation}</span>
+      <Estimation type={estimation} />
       <span className="CallListItemDuration">{duration}</span>
     </li>
   );
