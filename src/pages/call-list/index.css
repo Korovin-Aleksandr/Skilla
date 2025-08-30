@@ -1,0 +1,32 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+}
+
+.CallListHeader {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f1f4f9;
+}
+
+.CallListItemsHeader {
+    display: flex;
+    justify-content: space-between;
+    color: #5E7793;
+    padding: 20px;
+}
+
+.CallList {
+  width: 1140px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.CallListItems {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+}

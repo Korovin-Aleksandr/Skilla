@@ -1,0 +1,57 @@
+.SelectTrigger {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  font-family: "SFSF-Dysplay", sans-serif;
+  font-size: 14px;
+  gap: 4px;
+  height: 21px;
+  background-color: transparent;
+  color: #5e7793;
+  opacity: 87%;
+}
+
+.SelectIcon {
+  color: #adbfdf;
+}
+
+.SelectTrigger:focus {
+  outline: none !important;
+}
+
+.SelectViewport {
+  width: 133px;
+  height: 104px;
+  color: #122945;
+  border-radius: 8%;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+  background-color: white;
+}
+
+.SelectGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.SelectItem {
+  width: 100%;
+  padding: 7px 12px;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+/* Стили при наведении и фокусе */
+.SelectItem[data-highlighted] {
+  outline: none;
+  background-color: #dee4ff;
+}
+
+/* Стили для выбранного элемента */
+.SelectItem[data-state="checked"] {
+  background-color: #dee4ff;
+  color: #015EF5;
+}
