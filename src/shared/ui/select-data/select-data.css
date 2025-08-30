@@ -1,0 +1,75 @@
+.Trigger {
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  gap: 12px;
+  font-size: 14px;
+  height: 21px;
+  background-color: transparent;
+  color: #5e7793;
+  opacity: 87%;
+}
+
+.SelectDate {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.SelectIcon {
+  color: #adbfdf;
+}
+
+.SelectTrigger:focus {
+  outline: none !important;
+}
+
+.SelectIconLeft {
+  transform: rotate(90deg);
+}
+
+.SelectIconRight {
+  transform: rotate(-90deg);
+}
+
+.Viewport {
+  width: 204px;
+  height: 239px;
+  color: #122945;
+  border-radius: 4%;
+  box-shadow: 0px 0px 26px rgba(233, 237, 243, 0.8);
+}
+
+.Group {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.Item {
+  width: 100%;
+  padding: 7px 12px;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+.SelectLabel {
+  width: 100%;
+  padding: 7px 12px;
+  font-size: 14px;
+}
+
+/* Стили при наведении и фокусе */
+.Item[data-highlighted] {
+  outline: none;
+  background-color: #dee4ff;
+}
+
+/* Стили для выбранного элемента */
+.Item[data-state="checked"] {
+  background-color: #dee4ff;
+}

@@ -1,0 +1,210 @@
+.DatePickerContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.DatePickerTrigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: none;
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  min-width: 162px;
+}
+
+.DatePickerTrigger:hover {
+  border-color: #9ca3af;
+}
+
+.DateText {
+  font-size: 14px;
+  color: #899CB1;
+  flex: 1;  
+  text-align: left;
+}
+
+.ChevronIcon {
+  width: 16px;
+  height: 16px;
+  color: #6b7280;
+}
+
+.DatePickerDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+  z-index: 1000;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e5e7eb;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.CalendarContainer {
+  padding: 16px;
+}
+
+.CalendarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.CalendarHeader h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ADBFDF;
+}
+
+.CloseButton {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #ADBFDF;
+  padding: 4px;
+  line-height: 1;
+}
+
+.CloseButton:hover {
+  color: #374151;
+}
+
+/* Стили для календаря с интервалом */
+.RangeCalendar {
+  border: none;
+  padding: 0;
+}
+
+/* Кастомные стили для react-datepicker */
+.react-datepicker {
+  border: none;
+  font-family: inherit;
+}
+
+.react-datepicker__month-container {
+  padding: 0 8px;
+}
+
+.react-datepicker__header {
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.react-datepicker__current-month {
+  color: #374151;
+  font-weight: 600;
+}
+
+.react-datepicker__day-name {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.react-datepicker__day {
+  color: #374151;
+  border-radius: 4px;
+}
+
+.react-datepicker__day:hover {
+  background-color: #f3f4f6;
+  border-radius: 4px;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.react-datepicker__day--range-start,
+.react-datepicker__day--range-end {
+  background-color: #2563eb;
+  color: white;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #93c5fd;
+  color: white;
+}
+
+.CalendarActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.ClearButton {
+  padding: 8px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background: white;
+  color: #374151;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.ClearButton:hover {
+  background-color: #f9fafb;
+}
+
+.CancelButton {
+  padding: 8px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background: white;
+  color: #374151;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.CancelButton:hover {
+  background-color: #f9fafb;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Сетка из 12 черточек */
+.UnderlineGrid {
+  display: flex;
+  gap: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+    top: 28px;
+  z-index: 1;
+
+}
+
+.UnderlineSegment {
+  width: 8px;
+  height: 1px;
+  background-color: #D1D5DB;
+  flex-shrink: 0;
+}
+
+.UnderlineSegment:nth-child(7) {
+  width: 9px; /* Дефис между датами */
+  background-color: transparent;
+}

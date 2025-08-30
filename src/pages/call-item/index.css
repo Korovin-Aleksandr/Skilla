@@ -1,0 +1,45 @@
+.CallListItem {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #122945;
+  background-color: white;
+  height: 65px;
+  border-bottom: 1px solid #EAF0FA;
+}
+
+.CallListItemType {
+  width: 25px;
+}
+
+.CallListItemTime {
+  width: 45px;
+  margin-left: 20px;
+}
+
+.avatar {
+  width: 35px;
+  margin-left: 40px;
+}
+
+.CallListItemNumber {
+  width: 246px;
+  margin-left: 100px;
+}
+
+.CallListItemSource {
+  width: 100px;
+  margin-left: 20px;
+  color: #5E7793;
+}
+
+.CallListItemEstimation {
+  width: 100px;
+  margin-left: 20px;
+}
+
+.CallListItemDuration {
+  width: 100px;
+  margin-left: 300px;
+}
