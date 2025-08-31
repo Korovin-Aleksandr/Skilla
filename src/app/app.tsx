@@ -1,7 +1,7 @@
-import { CallList } from "../pages/ui/calls/index";
+import { Calls } from "../pages/ui/calls/index";
 
 export default function App() {
     return (
-       <CallList/>
+       <Calls/>
     );
 }

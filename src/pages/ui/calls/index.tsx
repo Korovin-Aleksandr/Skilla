@@ -4,6 +4,7 @@ import { CallItem } from "../call-item/call-item";
 import { callList } from "./mok";
 import "./index.css";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
+import { useState } from "react";
 
 const statusOptions = [
   { value: "all-types", label: "Все типы" },
@@ -17,13 +18,33 @@ const dataOptions = [
   { value: "year", label: "Год" },
 ];
 
-export const CallList = () => {
+export const Calls = () => {
+  const [selectType, setSelectType] = useState("all-types");
+  const [selectData, setSelectData] = useState("three-days");
+
+  const handleTypeChange = (value: string) => {
+    setSelectType(value);
+  };
+
+  const handleDataChange = (value: string) => {
+    setSelectData(value);
+    console.log(value);
+  };
+
   return (
     <div className="main">
       <div className="CallList">
         <div className="CallListHeader">
-          <SelectListType options={statusOptions} />
-          <SelectData options={dataOptions} />
+          <SelectListType
+            options={statusOptions}
+            onValueChange={handleTypeChange}
+            defaultValue={selectType}
+          />
+          <SelectData
+            options={dataOptions}
+            onValueChange={handleDataChange}
+            defaultValue={selectData}
+          />
         </div>
 
         <ul className="CallListItems">
