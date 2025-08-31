@@ -1,11 +1,9 @@
 .Trigger {
-  margin: 0;
-  padding: 0;
-  display: inline-flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   border: none;
-  gap: 12px;
+  gap: 17px;
   font-size: 14px;
   height: 21px;
   background-color: transparent;

@@ -1,0 +1,29 @@
+.CallListItem {
+  padding-top: 15px;
+  padding-bottom: 10px;
+  display: grid;
+  /* grid-template-columns: repeat(7, minmax(30px, 1fr)); */
+  grid-template-columns: 54px 88px 129px 325px 214px 461px 110px;
+   align-items: center;
+  color: #122945;
+  background-color: white;
+  border-bottom: 1px solid #eaf0fa;
+  line-height: 148%;
+}
+
+.CallListItemNumber {
+  font-size: 15px;
+  line-height: 148%;
+  
+}
+
+.CallListItemIcon {
+  padding-left: 5px;
+}
+
+
+
+.CallListItemDuration {
+  justify-self: end;
+  padding-right: 20px;
+}

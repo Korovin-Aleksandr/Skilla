@@ -1,0 +1,54 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+}
+
+.CallListHeader {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f1f4f9;
+}
+
+.CallListItemsHeader {
+  display: grid;
+  /* grid-template-columns: repeat(7, minmax(30px, 1fr)); */
+  grid-template-columns: 54px 88px 129px 325px 214px 461px 110px;
+  color: #5e7793;
+  padding-top: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eaf0fa;
+  font-size: 14px;
+  line-height: 148%;
+}
+
+.CallList {
+  width: 1440px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+}
+
+.CallListItems {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+  padding-left: 40px;
+  border-radius: 8px;
+}
+
+.DurationContainer, .TimeContainer{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.Duration {
+  justify-self: end;
+}
+
+.CallListItemNumber {
+  padding-right: 70px;
+}

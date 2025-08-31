@@ -1,4 +1,4 @@
-import { CallList } from "../pages/call-list";
+import { CallList } from "../pages/ui/calls/index";
 
 export default function App() {
     return (

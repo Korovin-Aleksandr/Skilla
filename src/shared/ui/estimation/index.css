@@ -1,29 +1,32 @@
 .BadConteiner {
+    padding: 5px 5px;
     height: 26px;
     color: #EA1A4F;
     border: 1px solid #EA1A4F;
     border-radius: 4px;
-    padding: 4px 7px 6px 7px;
     font-size: 14px;
     background-color: #FEE9EF;
+    margin-right: 405px;
 }
 
 .GoodConteiner {
+    padding: 5px 5px;
     height: 26px;
     color: #122945;
     border: 1px solid #ADBFDF;
     border-radius: 4px;
-    padding: 4px 7px 6px 7px;
+    margin-right: 395px;
     font-size: 14px;
     background-color: #D8E4FB;
 }
 
 .GreatConteiner {
+    padding: 5px 5px;
     height: 26px;
     color: #00A775;
     border: 1px solid #00A775;
     border-radius: 4px;
-    padding: 4px 7px 6px 7px;
+    margin-right: 390px;
     font-size: 14px;
     background-color: #DBF8EF;
 }

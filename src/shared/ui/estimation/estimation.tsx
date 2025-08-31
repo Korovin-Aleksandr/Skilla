@@ -1,6 +1,6 @@
 import "./index.css"
 
-export type EstimationType = 'bad' | 'good' | 'great' | 'none-sript'
+export type EstimationType = 'bad' | 'good' | 'great' | 'none-sript' | null
 
 export type EestimationProps = {
     type: EstimationType
@@ -24,6 +24,10 @@ export const Estimation = ({ type }: EestimationProps) => {
       return <p className="TextContainer">
         Скрипт не использован
       </p>;
+    case null:
+      return <div>
+
+      </div>
     default:
       return <button className="BadConteiner">
         Плохо
