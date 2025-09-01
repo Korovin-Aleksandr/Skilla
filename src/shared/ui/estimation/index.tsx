@@ -1,6 +1,6 @@
 import "./index.css"
 
-export type EstimationType = 'bad' | 'good' | 'great' | 'none-sript' | null
+export type EstimationType = "Не дозвонился" | "Успешный" | "Исчерпывающий" | "Скрипт не использован" | []
 
 export type EestimationProps = {
     type: EstimationType
@@ -8,29 +8,26 @@ export type EestimationProps = {
 
 export const Estimation = ({ type }: EestimationProps) => {
   switch (type) {
-    case 'bad':
+    case "Не дозвонился":
       return <button className="BadConteiner">
         Плохо
       </button>;
-    case 'good':
+    case "Успешный":
       return <button className="GoodConteiner">
         Хорошо
       </button>;
-    case 'great':
+    case "Исчерпывающий":
       return <button className="GreatConteiner">
         Отлично
       </button>;
-    case 'none-sript':
+    case "Скрипт не использован":
       return <p className="TextContainer">
         Скрипт не использован
       </p>;
-    case null:
+    case []:
       return <div>
 
       </div>
-    default:
-      return <button className="BadConteiner">
-        Плохо
-      </button>
+ 
   }
 };  

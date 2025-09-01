@@ -10,21 +10,21 @@ interface SelectOption {
 
 interface SelectListTypeProps {
   options: SelectOption[];
-  defaultValue?: string;
+  value?: string;
   onValueChange?: (value: string) => void;
 }
 
 export const SelectListType = ({
   options,
-  defaultValue = "all-types",
+  value,
 
   onValueChange,
 }: SelectListTypeProps) => {
-  const [value, setValue] = useState(defaultValue);
+  // const [value, setValue] = useState(defaultValue);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleValueChange = (newValue: string) => {
-    setValue(newValue);
+    // setValue(newValue);
     onValueChange?.(newValue);
   };
 

@@ -1,8 +1,8 @@
 import * as Select from "@radix-ui/react-select";
-import "./select-data.css";
+import "./index.css";
 import { useState } from "react";
 import { Calendar, ChevronDownIcon } from "../../assets/svg/Icon";
-import { CustomDatePicker } from "../datepicker-modal/datepicker";
+import { CustomDatePicker } from "../datepicker-modal";
 
 interface SelectOption {
   value: string;
@@ -11,17 +11,18 @@ interface SelectOption {
 
 interface SelectListTypeProps {
   options: SelectOption[];
-  defaultValue?: string;
+  value: string;
   onValueChange?: (value: string) => void;
   onDateRangeChange?: (dates: { start: Date | null; end: Date | null }) => void;
 }
 
 export const SelectData = ({
   options,
+  value,
   onValueChange,
   onDateRangeChange,
 }: SelectListTypeProps) => {
-  const [value, setValue] = useState("three-days");
+  // const [value, setValue] = useState("three-days");
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
   const [selectedDates, setSelectedDates] = useState<{
     start: Date | null;
@@ -51,7 +52,7 @@ export const SelectData = ({
       return;
     }
 
-    setValue(newValue);
+    // setValue(newValue);
     onValueChange?.(newValue);
   };
 
@@ -63,7 +64,7 @@ export const SelectData = ({
 
     if (dates.start && dates.end) {
       const dateRangeValue = generateDateRangeValue(dates.start, dates.end);
-      setValue(dateRangeValue);
+      // setValue(dateRangeValue);
       onValueChange?.(dateRangeValue);
     }
 

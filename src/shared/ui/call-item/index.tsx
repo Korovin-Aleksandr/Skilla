@@ -1,22 +1,22 @@
 import { IncomingIcon, MissedIcon, NonCallIcon, OutgoingIcon } from "../../assets/svg/Icon";
 
-export type IconType = 'incoming' | 'outgoing' | 'missed' | 'non-call';
+export type CallDirection = 1 | 0 | 2 | 3 | null;
 
-interface IconProps extends React.SVGProps<SVGSVGElement> {
-  type: IconType;
+interface IconProps {
+  typeCall: CallDirection;
 }
-
+ 
 export const CallIcon: React.FC<IconProps> = ({
-  type
+  typeCall
 }) => {
-  switch (type) {
-    case 'incoming':
+  switch (typeCall) {
+    case 1:
       return <IncomingIcon/>;
-    case 'outgoing':
+    case 0:
       return <OutgoingIcon/>;
-    case 'missed':
+    case 2:
       return <MissedIcon />;
-    case 'non-call':
+    case 3:
       return <NonCallIcon />;
     default:
       return <IncomingIcon/>;
