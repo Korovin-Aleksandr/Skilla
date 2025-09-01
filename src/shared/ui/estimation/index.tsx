@@ -1,6 +1,5 @@
+import type { EstimationType } from "@shared/model/types";
 import "./index.css"
-
-export type EstimationType = "Не дозвонился" | "Успешный" | "Исчерпывающий" | "Скрипт не использован" | []
 
 export type EestimationProps = {
     type: EstimationType
@@ -28,6 +27,7 @@ export const Estimation = ({ type }: EestimationProps) => {
       return <div>
 
       </div>
- 
   }
-};  
+};
+
+export default Estimation

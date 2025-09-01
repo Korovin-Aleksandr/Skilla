@@ -89,3 +89,5 @@ export const CustomDatePicker = ({
     </div>
   );
 };
+
+export default CustomDatePicker;

@@ -1,12 +1,11 @@
-import { IncomingIcon, MissedIcon, NonCallIcon, OutgoingIcon } from "../../assets/svg/Icon";
-
-export type CallDirection = 1 | 0 | 2 | 3 | null;
+import { IncomingIcon, MissedIcon, NonCallIcon, OutgoingIcon } from "@shared/assets/svg/Icon";
+import type { CallDirection } from "@shared/model/types";
 
 interface IconProps {
   typeCall: CallDirection;
 }
  
-export const CallIcon: React.FC<IconProps> = ({
+const CallIcon: React.FC<IconProps> = ({
   typeCall
 }) => {
   switch (typeCall) {
@@ -21,4 +20,6 @@ export const CallIcon: React.FC<IconProps> = ({
     default:
       return <IncomingIcon/>;
   }
-};  
+};
+
+export default CallIcon

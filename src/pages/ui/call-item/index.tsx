@@ -1,18 +1,19 @@
-import { CallIcon } from "../../../shared/ui/call-item";
-import { Estimation } from "../../../shared/ui/estimation";
+
+import { CallIcon, Estimation } from "@/shared/ui";
 import "./index.css";
+import type { CallDirection, EstimationType } from "@shared/model/types";
 
 export interface CallItemProps {
-  typeCall: 1 | 0 | 2 | 3 | null;
+  typeCall: CallDirection;
   time: string;
   person: string |null;
   number: string;
-  estimation: "Не дозвонился" | "Успешный" | "Исчерпывающий" | "Скрипт не использован" | []
+  estimation: EstimationType;
   source: string;
   duration: string;
 }
 
-export function CallItem({
+const CallItem = ({
   typeCall,
   time,
   person,
@@ -20,7 +21,7 @@ export function CallItem({
   source,
   estimation,
   duration,
-}: CallItemProps) {
+}: CallItemProps) => {
   return (
     <li className="CallListItem">
       <span className="CallListItemIcon">
@@ -47,3 +48,5 @@ export function CallItem({
     </li>
   );
 }
+
+export default CallItem;

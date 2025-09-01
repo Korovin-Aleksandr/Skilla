@@ -1,7 +1,7 @@
 import * as Select from "@radix-ui/react-select";
 import "./index.css";
 import { useState } from "react";
-import { ChevronUpIcon, ChevronDownIcon } from "../../assets/svg/Icon";
+import { ChevronUpIcon, ChevronDownIcon } from "@shared/assets/svg/Icon";
 
 interface SelectOption {
   value: string;
@@ -14,17 +14,15 @@ interface SelectListTypeProps {
   onValueChange?: (value: string) => void;
 }
 
-export const SelectListType = ({
+const SelectListType = ({
   options,
   value,
 
   onValueChange,
 }: SelectListTypeProps) => {
-  // const [value, setValue] = useState(defaultValue);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleValueChange = (newValue: string) => {
-    // setValue(newValue);
     onValueChange?.(newValue);
   };
 
@@ -70,3 +68,5 @@ export const SelectListType = ({
     </Select.Root>
   );
 };
+
+export default SelectListType;

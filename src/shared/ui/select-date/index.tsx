@@ -1,7 +1,7 @@
 import * as Select from "@radix-ui/react-select";
 import "./index.css";
 import { useState } from "react";
-import { Calendar, ChevronDownIcon } from "../../assets/svg/Icon";
+import { Calendar, ChevronDownIcon } from "@shared/assets/svg/Icon";
 import { CustomDatePicker } from "../datepicker-modal";
 
 interface SelectOption {
@@ -151,3 +151,5 @@ export const SelectData = ({
     </>
   );
 };
+
+export default SelectData;

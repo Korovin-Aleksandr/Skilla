@@ -1,28 +1,16 @@
-import { SelectData } from "../../../shared/ui/select-date";
-import { SelectListType } from "../../../shared/ui/select";
-import { CallItem } from "../call-item/call-item";
+import { SelectListType, SelectData } from "@/shared/ui";
+import { CallItem } from "../index";
 import "./index.css";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 import { useEffect, useState } from "react";
-import {
-  getCallList,
-  
-} from "../../../shared/api";
-import { getDateRangeParams, type GetCallListParams } from "../../../shared/api/model/hallp";
-import { format } from 'date-fns';
-import type { CallData } from "../../../shared/api/model/types";
-
-const statusOptions = [
-  { value: "all-types", label: "Все типы" },
-  { value: "1", label: "Входящие" },
-  { value: "0", label: "Исходящие" },
-];
-
-const dataOptions = [
-  { value: "three-days", label: "3 дня" },
-  { value: "month", label: "Месяц" },
-  { value: "year", label: "Год" },
-];
+import { getCallList } from "@/shared/";
+import { getDateRangeParams } from "@shared/api";
+import { format } from "date-fns";
+import type {
+  CallData,
+  GetCallListParams,
+} from "../../../shared/api/model/types";
+import { dataOptions, statusOptions } from "../../../shared/model/types";
 
 export const Calls = () => {
   const [selectType, setSelectType] = useState("all-types");
@@ -71,12 +59,12 @@ export const Calls = () => {
     });
   };
 
-const formatDuration = (seconds: number): string => {
-  if (seconds === 0) return "0:00";
-  
-  const date = new Date(seconds * 1000);
-  return format(date, 'm:ss');
-};
+  const formatDuration = (seconds: number): string => {
+    if (seconds === 0) return "0:00";
+
+    const date = new Date(seconds * 1000);
+    return format(date, "m:ss");
+  };
 
   const handleDataChange = (value: string) => {
     setSelectData(value);
@@ -165,3 +153,5 @@ const formatDuration = (seconds: number): string => {
     </div>
   );
 };
+
+export default Calls;
