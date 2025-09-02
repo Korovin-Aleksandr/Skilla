@@ -1,20 +1,20 @@
-import { SelectListType, SelectData, useCall } from "@/shared";
+import { SelectListType, SelectData } from "@/shared";
 import "./index.css";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { format } from "date-fns";
 import { dataOptions, statusOptions } from "@shared/model/types";
 import { CallItem } from "../call-item";
+import { useCalls } from "@shared/hooks";
 
 export const Calls = () => {
   const [selectType, setSelectType] = useState("all-types");
   const [selectData, setSelectData] = useState("three-days");
 
-  const { calls, loading, error, fetchCalls } = useCall();
-
-  useEffect(() => {
-    fetchCalls(selectType, selectData);
-  }, [selectType, selectData, fetchCalls]);
+  const { calls, loading, error, fetchCalls } = useCalls(
+    selectType,
+    selectData
+  );
 
   const formatTime = (dateString: string): string => {
     const date = new Date(dateString);
@@ -120,5 +120,3 @@ export const Calls = () => {
     </div>
   );
 };
-
-export default Calls;

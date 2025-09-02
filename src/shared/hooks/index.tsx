@@ -1,9 +1,10 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { getCallList } from "@/shared/";
 import { getDateRangeParams } from "@shared/api";
 import type { CallData, GetCallListParams } from "@/shared/api/model/types";
+import { getCallRecord } from "@shared/api";
 
-export const useCall = () => {
+export const useCalls = (selectType?: string, selectData?: string) => {
   const [calls, setCalls] = useState<CallData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -35,6 +36,10 @@ export const useCall = () => {
     }
   }, []);
 
+  useEffect(() => {
+    fetchCalls(selectType, selectData);
+  }, [selectType, selectData, fetchCalls]);
+
   return {
     calls,
     loading,
@@ -43,5 +48,65 @@ export const useCall = () => {
     setCalls,
     setLoading,
     setError,
+  };
+};
+
+interface AudioRecord {
+  blob: Blob;
+  url: string;
+  response: Response;
+}
+
+interface UseAudioRecordResult {
+  audioFile: AudioRecord | null;
+  loading: boolean;
+  error: string | null;
+  fetchAudio: () => Promise<void>;
+}
+
+export const useAudioRecord = (
+  recordId?: string,
+  partnershipId?: string
+): UseAudioRecordResult => {
+  const [audioFile, setAudioFile] = useState<AudioRecord | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const fetchAudio = useCallback(async () => {
+    if (!recordId || !partnershipId) {
+      setError("Не указаны recordId или partnershipId");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      setError(null);
+
+      const audioData = await getCallRecord(recordId, partnershipId);
+      setAudioFile(audioData);
+    } catch (err) {
+      const errorMessage =
+        err instanceof Error
+          ? err.message
+          : "Неизвестная ошибка при загрузке аудиозаписи";
+
+      setError(errorMessage);
+      console.error("Ошибка при загрузке аудиозаписи:", err);
+    } finally {
+      setLoading(false);
+    }
+  }, [recordId, partnershipId]);
+
+  useEffect(() => {
+    if (recordId && partnershipId) {
+      fetchAudio();
+    }
+  }, [recordId, partnershipId, fetchAudio]);
+
+  return {
+    audioFile,
+    loading,
+    error,
+    fetchAudio,
   };
 };

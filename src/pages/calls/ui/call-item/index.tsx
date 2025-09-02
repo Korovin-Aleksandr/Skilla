@@ -1,8 +1,7 @@
 import { CallIcon, Estimation } from "@/shared";
 import "./index.css";
 import type { CallDirection, EstimationType } from "@shared/model/types";
-import { useEffect, useState } from "react";
-import { getCallRecord } from "@shared/api";
+import { useAudioRecord } from "@shared/hooks";
 
 export interface CallItemProps {
   typeCall: CallDirection;
@@ -16,12 +15,6 @@ export interface CallItemProps {
   partnership_id?: string;
 }
 
-interface AudioRecord {
-  blob: Blob;
-  url: string;
-  response: Response;
-}
-
 export const CallItem = ({
   typeCall,
   time,
@@ -33,15 +26,10 @@ export const CallItem = ({
   record,
   partnership_id,
 }: CallItemProps) => {
-  const [audioFile, setAudioFile] = useState<AudioRecord | null>(null);
-
-  useEffect(() => {
-    if (record && partnership_id) {
-      getCallRecord(record, partnership_id).then((item) => {
-        setAudioFile(item);
-      });
-    }
-  }, [record, partnership_id]);
+  const { audioFile, loading, error, fetchAudio } = useAudioRecord(
+    record,
+    partnership_id
+  );
 
   return (
     <li className="CallListItem">
@@ -52,7 +40,7 @@ export const CallItem = ({
         <span>{time}</span>
       </span>
       <span className="avatar">
-        <img src={person || undefined} />
+        <img src={person || undefined} alt="Аватар сотрудника" />
       </span>
       <span className="CallListItemNumber">
         <span>{number}</span>
@@ -64,8 +52,17 @@ export const CallItem = ({
         <Estimation type={estimation} />
       </span>
       <span className="CallListItemDuration">
-        {audioFile ? (
-          <audio controls src={audioFile.url}></audio>
+        {loading ? (
+          <span className="audio-loading">Загрузка...</span>
+        ) : error ? (
+          <div className="audio-error">
+            <span>Ошибка</span>
+            <button onClick={fetchAudio} className="retry-audio">
+              ⟳
+            </button>
+          </div>
+        ) : audioFile ? (
+          <audio className="audio-player" controls src={audioFile.url}></audio>
         ) : (
           <span>{duration}</span>
         )}

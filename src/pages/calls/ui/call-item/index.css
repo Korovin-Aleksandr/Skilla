@@ -1,6 +1,6 @@
 .CallListItem {
-  padding-top: 15px;
-  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 5px;
   display: grid;
   grid-template-columns: 54px 88px 129px 325px 214px 461px 110px;
   align-items: center;
@@ -26,4 +26,8 @@
 
 .CallListItemSource {
   color: #5e7793;
+}
+
+.audio-player {
+  height: 48px;
 }

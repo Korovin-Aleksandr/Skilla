@@ -125,5 +125,3 @@ export const getCallRecord = async (
     throw error;
   }
 };
-
-export default getCallList;

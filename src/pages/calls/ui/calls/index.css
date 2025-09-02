@@ -12,7 +12,6 @@
 
 .CallListItemsHeader {
   display: grid;
-  /* grid-template-columns: repeat(7, minmax(30px, 1fr)); */
   grid-template-columns: 54px 88px 129px 325px 214px 461px 110px;
   color: #5e7793;
   padding-top: 25px;
