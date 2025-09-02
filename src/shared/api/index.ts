@@ -1,7 +1,7 @@
+import { formatDateForAPI } from "@shared/lib/format";
 import type { GetCallListParams } from "./model/types";
 import { API_CONFIG, type ApiResponse } from "./model/types";
 import {
-  format,
   startOfDay,
   endOfDay,
   subDays,
@@ -42,10 +42,6 @@ export function getDateRangeParams(period: string): {
 
     startDate = Period[period] || subDays(today, 3);
   }
-
-  const formatDateForAPI = (date: Date): string => {
-    return format(date, "yyyy-MM-dd");
-  };
 
   return {
     date_start: formatDateForAPI(startDate),

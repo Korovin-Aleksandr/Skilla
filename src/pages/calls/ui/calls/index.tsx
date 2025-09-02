@@ -2,10 +2,10 @@ import { SelectListType, SelectData } from "@/shared";
 import "./index.css";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 import { useState } from "react";
-import { format } from "date-fns";
 import { dataOptions, statusOptions } from "@shared/model/types";
 import { CallItem } from "../call-item";
 import { useCalls } from "@shared/hooks";
+import { formatDuration, formatTime } from "@shared/lib/format";
 
 export const Calls = () => {
   const [selectType, setSelectType] = useState("all-types");
@@ -15,21 +15,6 @@ export const Calls = () => {
     selectType,
     selectData
   );
-
-  const formatTime = (dateString: string): string => {
-    const date = new Date(dateString);
-    return date.toLocaleTimeString("ru-RU", {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-  };
-
-  const formatDuration = (seconds: number): string => {
-    if (seconds === 0) return "0:00";
-
-    const date = new Date(seconds * 1000);
-    return format(date, "m:ss");
-  };
 
   const handleDataChange = (value: string) => {
     setSelectData(value);

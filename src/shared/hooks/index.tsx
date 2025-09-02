@@ -4,6 +4,19 @@ import { getDateRangeParams } from "@shared/api";
 import type { CallData, GetCallListParams } from "@/shared/api/model/types";
 import { getCallRecord } from "@shared/api";
 
+interface AudioRecord {
+  blob: Blob;
+  url: string;
+  response: Response;
+}
+
+interface UseAudioRecordResult {
+  audioFile: AudioRecord | null;
+  loading: boolean;
+  error: string | null;
+  fetchAudio: () => Promise<void>;
+}
+
 export const useCalls = (selectType?: string, selectData?: string) => {
   const [calls, setCalls] = useState<CallData[]>([]);
   const [loading, setLoading] = useState(true);
@@ -50,19 +63,6 @@ export const useCalls = (selectType?: string, selectData?: string) => {
     setError,
   };
 };
-
-interface AudioRecord {
-  blob: Blob;
-  url: string;
-  response: Response;
-}
-
-interface UseAudioRecordResult {
-  audioFile: AudioRecord | null;
-  loading: boolean;
-  error: string | null;
-  fetchAudio: () => Promise<void>;
-}
 
 export const useAudioRecord = (
   recordId?: string,
