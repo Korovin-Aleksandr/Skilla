@@ -10,6 +10,11 @@ export const dataOptions = [
   { value: "year", label: "Год" },
 ];
 
-export type EstimationType = "Не дозвонился" | "Успешный" | "Исчерпывающий" | "Скрипт не использован" | []
+export type EstimationType =
+  | "Не дозвонился"
+  | "Успешный"
+  | "Исчерпывающий"
+  | "Скрипт не использован"
+  | [];
 
 export type CallDirection = 1 | 0 | 2 | 3 | null;

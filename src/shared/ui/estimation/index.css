@@ -1,36 +1,36 @@
 .BadConteiner {
-    padding: 5px 5px;
-    height: 26px;
-    color: #EA1A4F;
-    border: 1px solid #EA1A4F;
-    border-radius: 4px;
-    font-size: 14px;
-    background-color: #FEE9EF;
-    margin-right: 405px;
+  padding: 5px 5px;
+  height: 26px;
+  color: #ea1a4f;
+  border: 1px solid #ea1a4f;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #fee9ef;
+  margin-right: 405px;
 }
 
 .GoodConteiner {
-    padding: 5px 5px;
-    height: 26px;
-    color: #122945;
-    border: 1px solid #ADBFDF;
-    border-radius: 4px;
-    margin-right: 395px;
-    font-size: 14px;
-    background-color: #D8E4FB;
+  padding: 5px 5px;
+  height: 26px;
+  color: #122945;
+  border: 1px solid #adbfdf;
+  border-radius: 4px;
+  margin-right: 395px;
+  font-size: 14px;
+  background-color: #d8e4fb;
 }
 
 .GreatConteiner {
-    padding: 5px 5px;
-    height: 26px;
-    color: #00A775;
-    border: 1px solid #00A775;
-    border-radius: 4px;
-    margin-right: 390px;
-    font-size: 14px;
-    background-color: #DBF8EF;
+  padding: 5px 5px;
+  height: 26px;
+  color: #00a775;
+  border: 1px solid #00a775;
+  border-radius: 4px;
+  margin-right: 390px;
+  font-size: 14px;
+  background-color: #dbf8ef;
 }
 
 .TextContainer {
-    color: #EA1A4F;
+  color: #ea1a4f;
 }

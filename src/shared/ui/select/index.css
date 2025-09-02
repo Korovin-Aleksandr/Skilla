@@ -53,5 +53,5 @@
 /* Стили для выбранного элемента */
 .SelectItem[data-state="checked"] {
   background-color: #dee4ff;
-  color: #015EF5;
+  color: #015ef5;
 }

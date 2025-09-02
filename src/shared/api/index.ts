@@ -34,19 +34,13 @@ export function getDateRangeParams(period: string): {
       startDate = subDays(today, 3);
     }
   } else {
-    switch (period) {
-      case "three-days":
-        startDate = subDays(today, 3);
-        break;
-      case "month":
-        startDate = subMonths(today, 1);
-        break;
-      case "year":
-        startDate = subYears(today, 1);
-        break;
-      default:
-        startDate = subDays(today, 3);
-    }
+    const Period: Record<string, Date> = {
+      "three-days": subDays(today, 3),
+      month: subMonths(today, 1),
+      year: subYears(today, 1),
+    };
+
+    startDate = Period[period] || subDays(today, 3);
   }
 
   const formatDateForAPI = (date: Date): string => {
@@ -59,27 +53,20 @@ export function getDateRangeParams(period: string): {
   };
 }
 
-
 export const getCallList = async (
   params?: GetCallListParams
 ): Promise<ApiResponse> => {
   try {
-    const queryParams = new URLSearchParams();
+    const queryString = [
+      params?.date_start ? `date_start=${params.date_start}` : "",
+      params?.date_end ? `date_end=${params.date_end}` : "",
+      params?.in_out !== undefined ? `in_out=${params.in_out}` : "",
+    ]
+      .filter((param) => param !== "")
+      .join("&");
 
-    if (params?.date_start) {
-      queryParams.append("date_start", params.date_start);
-    }
-
-    if (params?.date_end) {
-      queryParams.append("date_end", params.date_end);
-    }
-
-    if (params?.in_out !== undefined) {
-      queryParams.append("in_out", params.in_out.toString());
-    }
-
-    const url = `${API_CONFIG.URL}${
-      queryParams.toString() ? `?${queryParams.toString()}` : ""
+    const url = `${API_CONFIG.URL}/getList${
+      queryString ? `?${queryString}` : ""
     }`;
 
     const response = await fetch(url, {
@@ -102,6 +89,40 @@ export const getCallList = async (
   } catch (err) {
     console.error("Ошибка при запросе:", err);
     throw err;
+  }
+};
+
+export const getCallRecord = async (
+  recordId: string,
+  partnershipId: string
+) => {
+  try {
+    const url = `${API_CONFIG.URL}/getRecord?record=${recordId}&partnership_id=${partnershipId}`;
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${API_CONFIG.TOKEN}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Ошибка HTTP: ${response.status}`);
+    }
+
+    const audioBlob = await response.blob();
+
+    const audioUrl = URL.createObjectURL(audioBlob);
+
+    return {
+      blob: audioBlob,
+      url: audioUrl,
+      response: response,
+    };
+  } catch (error) {
+    console.error("Ошибка при получении записи звонка:", error);
+    throw error;
   }
 };
 

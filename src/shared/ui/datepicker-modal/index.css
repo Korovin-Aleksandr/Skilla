@@ -1,4 +1,3 @@
-/* index.css - обновленный вариант */
 .DatePickerModalOverlay {
   position: fixed;
   top: 0;
@@ -27,7 +26,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
- 
 }
 
 .SelectedDatesPreview {
@@ -178,7 +176,9 @@
   color: white;
 }
 
-.react-datepicker__day--in-range:not(.react-datepicker__day--range-start):not(.react-datepicker__day--range-end) {
+.react-datepicker__day--in-range:not(.react-datepicker__day--range-start):not(
+    .react-datepicker__day--range-end
+  ) {
   background-color: #ebf4ff;
   color: #2d3748;
 }

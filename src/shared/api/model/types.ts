@@ -21,11 +21,6 @@ export interface ApiResponse {
 }
 
 export const API_CONFIG = {
-  URL: "https://api.skilla.ru/mango/getList",
-  TOKEN: "testtoken",
-};
-
-export const API_CONFIG_DEV = {
   URL: "https://api.skilla.ru/mango",
   TOKEN: "testtoken",
 };

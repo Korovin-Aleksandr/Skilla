@@ -1,7 +1,5 @@
-import { Calls } from "../pages/ui/calls/index";
+import { CallsPage } from "@/pages/calls";
 
 export default function App() {
-    return (
-       <Calls/>
-    );
+  return <CallsPage />;
 }

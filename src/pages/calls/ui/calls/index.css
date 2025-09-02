@@ -27,7 +27,6 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-
 }
 
 .CallListItems {
@@ -39,7 +38,8 @@
   border-radius: 8px;
 }
 
-.DurationContainer, .TimeContainer{
+.DurationContainer,
+.TimeContainer {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -51,4 +51,9 @@
 
 .CallListItemNumber {
   padding-right: 70px;
+}
+
+.call-list-state {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }

@@ -1,55 +1,20 @@
-import { SelectListType, SelectData } from "@/shared/ui";
-import { CallItem } from "../index";
+import { SelectListType, SelectData, useCall } from "@/shared";
 import "./index.css";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 import { useEffect, useState } from "react";
-import { getCallList } from "@/shared/";
-import { getDateRangeParams } from "@shared/api";
 import { format } from "date-fns";
-import type {
-  CallData,
-  GetCallListParams,
-} from "../../../shared/api/model/types";
-import { dataOptions, statusOptions } from "../../../shared/model/types";
+import { dataOptions, statusOptions } from "@shared/model/types";
+import { CallItem } from "../call-item";
 
 export const Calls = () => {
   const [selectType, setSelectType] = useState("all-types");
   const [selectData, setSelectData] = useState("three-days");
-  const [calls, setCalls] = useState<CallData[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
-  const fetchCalls = async (typeCall?: string, period?: string) => {
-    try {
-      setLoading(true);
-      setError(null);
-
-      const params: GetCallListParams = {};
-
-      if (typeCall !== "all-types") {
-        params.in_out = Number(typeCall);
-      }
-
-      if (period && period !== "all-periods") {
-        const dateParams = getDateRangeParams(period);
-        params.date_start = dateParams.date_start;
-        params.date_end = dateParams.date_end;
-      }
-
-      const response = await getCallList(params);
-      setCalls(response.results);
-      console.log(response.results);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Неизвестная ошибка");
-      console.error("Ошибка при загрузке звонков:", err);
-    } finally {
-      setLoading(false);
-    }
-  };
+  const { calls, loading, error, fetchCalls } = useCall();
 
   useEffect(() => {
     fetchCalls(selectType, selectData);
-  }, [selectType, selectData]);
+  }, [selectType, selectData, fetchCalls]);
 
   const formatTime = (dateString: string): string => {
     const date = new Date(dateString);
@@ -114,7 +79,7 @@ export const Calls = () => {
           ) : (
             <>
               {error ? (
-                <div className="call-list-state error">
+                <div className="call-list-state">
                   <p>Ошибка загрузки: {error}</p>
                   <button
                     className="retry-button"
@@ -124,10 +89,10 @@ export const Calls = () => {
                   </button>
                 </div>
               ) : calls.length === 0 ? (
-                <div className="call-list-state empty">
+                <div className="call-list-state">
                   <p>
-                    Нет данных о звонках за выбранный период Попробуйте изменить
-                    параметры фильтрации
+                    Нет данных о звонках за выбранный период. Попробуйте
+                    изменить параметры фильтрации
                   </p>
                 </div>
               ) : (
@@ -142,6 +107,8 @@ export const Calls = () => {
                       source={call.source || ""}
                       estimation={call.status}
                       duration={formatDuration(call.time)}
+                      record={call.record}
+                      partnership_id={call.partnership_id}
                     />
                   ))}
                 </>

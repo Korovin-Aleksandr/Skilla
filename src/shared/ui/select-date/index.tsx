@@ -91,7 +91,7 @@ export const SelectData = ({
     if (value.startsWith("custom:")) {
       return formatDateRangeDisplay();
     }
-    
+
     const option = options.find((opt) => opt.value === value);
     return option?.label || "";
   };
@@ -151,5 +151,3 @@ export const SelectData = ({
     </>
   );
 };
-
-export default SelectData;

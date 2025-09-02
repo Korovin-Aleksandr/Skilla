@@ -14,7 +14,7 @@ interface SelectListTypeProps {
   onValueChange?: (value: string) => void;
 }
 
-const SelectListType = ({
+export const SelectListType = ({
   options,
   value,
 
@@ -68,5 +68,3 @@ const SelectListType = ({
     </Select.Root>
   );
 };
-
-export default SelectListType;
