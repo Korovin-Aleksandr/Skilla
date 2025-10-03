@@ -1,0 +1,141 @@
+.audio-player {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #EAF0FA;
+  border-radius: 48px;
+  width: 352px;
+  height: 48px;
+}
+
+.play-pause-btn {
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.play-pause-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.play-pause-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.time-duration {
+  font-size: 15px;
+  color: #122945;
+  min-width: 36px;
+  font-weight: 400; 
+}
+
+
+.progress-bar-container {
+  position: relative;
+  max-width: 164px;
+  display: flex;
+  align-items: center;
+}
+
+.progress-bar {
+  width: 164px;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #ADBFDF;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+}
+
+.progress-bar:disabled {
+  cursor: not-allowed;
+}
+
+.progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #002CFB;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.progress-bar:hover::-webkit-slider-thumb {
+  opacity: 1;
+}
+
+.progress-bar::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #007bff;
+  cursor: pointer;
+  border: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.progress-bar:hover::-moz-range-thumb {
+  opacity: 1;
+}
+
+.progress-bar-fill {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  width: 0; 
+  background: #002CFB;
+  border-radius: 50px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 2;
+  transition: width 0.1s ease;
+  max-width: 164px;
+}
+
+.progress-bar::-webkit-slider-track {
+  width: 100%;
+  height: 4px;
+  background: transparent;
+  border-radius: 2px;
+}
+
+.progress-bar::-moz-range-track {
+  width: 100%;
+  height: 4px;
+  background: #dee2e6;
+  border-radius: 2px;
+  border: none;
+}
+
+.download-btn {
+  background: none;
+  border: none;
+  margin-left: 10px;
+}
+
+.download-btn:hover:not(:disabled) {
+    transform: scale(1.05);
+}
+
+

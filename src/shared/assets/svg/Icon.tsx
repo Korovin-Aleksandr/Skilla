@@ -1,4 +1,3 @@
-
 export const ChevronUpIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     width="12"
@@ -98,6 +97,50 @@ export const NonCallIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <path
       d="m0 11.345 1.177 1.177 9.675-9.675v5.5h1.67V0H4.174v1.67h5.501L0 11.345Z"
       fill="#EA1A4F"
+    />
+  </svg>
+);
+
+export const PauseIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    fill="none"
+    {...props}
+  >
+    <rect width="24" height="24" fill="#fff" rx="12" />
+    <path fill="#002CFB" d="M8 16h2.667V8H8v8Zm5.333-8v8H16V8h-2.667Z" />
+  </svg>
+);
+
+export const StartIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    fill="none"
+    {...props}
+  >
+    <rect width="24" height="24" fill="#fff" rx="12" />
+    <path
+      fill="#002CFB"
+      d="M9.287 7.07a.623.623 0 0 1 .575 0l6.85 4.482A.51.51 0 0 1 17 12a.51.51 0 0 1-.288.448l-6.85 4.483a.63.63 0 0 1-.574 0A.511.511 0 0 1 9 16.483V7.518a.51.51 0 0 1 .287-.449Z"
+    />
+  </svg>
+);
+
+export const DownloadIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="13"
+    height="16"
+    fill="none"
+    {...props}
+  >
+    <path
+      fill="#002CFB"
+      d="M0 16h13v-1.882H0V16ZM13 5.647H9.286V0H3.714v5.647H0l6.5 6.588L13 5.647Z"
     />
   </svg>
 );

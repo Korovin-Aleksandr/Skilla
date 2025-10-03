@@ -2,6 +2,7 @@ import { CallIcon, Estimation } from "@/shared";
 import "./index.css";
 import type { CallDirection, EstimationType } from "@shared/model/types";
 import { useAudioRecord } from "@shared/hooks";
+import { AudioPlayer } from "@shared/ui/audio-player";
 
 export interface CallItemProps {
   typeCall: CallDirection;
@@ -62,7 +63,10 @@ export const CallItem = ({
             </button>
           </div>
         ) : audioFile ? (
-          <audio className="audio-player" controls src={audioFile.url}></audio>
+          <AudioPlayer
+            audioUrl={audioFile.url}
+            fileName={`запись-разговора-${number}-${time}`}
+          />
         ) : (
           <span>{duration}</span>
         )}
